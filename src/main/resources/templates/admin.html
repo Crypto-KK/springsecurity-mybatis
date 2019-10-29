@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+
+<h3>欢迎 <span th:text="${user}"></span>admin</h3>
+<p>权限： <span th:text="${role}"></span></p>
+
+<a href="dba">访问dba</a>
+<a href="logout">退出</a>
+</body>
+
+</html>

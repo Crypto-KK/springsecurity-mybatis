@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+
+    <div>
+        <form id="loginForm" th:action="@{/login}" method="post">
+            <div th:if="${param.error != null}">
+                <p>用户名密码错误</p>
+            </div>
+            <div th:if="${param.logout != null}">
+                <p>注销成功</p>
+            </div>
+
+            <input type="text" name="loginName" id="loginName">
+            <input type="password" name="password" id="password">
+
+            <div>
+                <input type="button" id="loginBtn" value="登录">
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+<script>
+    $(function () {
+        $('#loginBtn').click(function () {
+            var loginName = $('#loginName')
+            var password = $('#password')
+            var msg = ''
+            if (loginName.val() === "") {
+                msg = "sdf"
+            } else if (password.val() === "") {
+                msg = "Asdfs"
+                password.focus();
+            }
+            if (msg !== "") {
+                alert(msg);
+                return;
+            }
+            $('#loginForm').submit();
+        });
+    })
+
+</script>
+</html>
